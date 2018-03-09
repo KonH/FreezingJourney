@@ -1,23 +1,19 @@
 ﻿using UnityEngine;
+using Zenject;
 
 public class Collector : MonoBehaviour {
-	public int CurCount;
-	public int WantCount;
+	GameState _state;
 
-	HeatZone _curZone;
+	[Inject]
+	public void Init(GameState state) {
+		_state = state;
+	}
 
 	void OnTriggerEnter(Collider other) {
 		var item = other.gameObject.GetComponent<Collectable>();
 		if ( item ) {
 			item.Use();
-			CurCount++;
-			CheckCount();
-		}
-	}
-
-	void CheckCount() {
-		if ( CurCount >= WantCount ) {
-			GetComponent<Mover>().enabled = false;
+			_state.AddItem();
 		}
 	}
 }

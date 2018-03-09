@@ -70,3 +70,7 @@ MonoBehaviour:
   UnityLogSettings:
     EnabledByDefault: 1
     Nodes: []
+  GameSettings:
+    StartHeat: 5
+    MaxHeat: 10
+    MaxItems: 1
