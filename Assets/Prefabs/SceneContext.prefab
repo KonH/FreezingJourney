@@ -9,31 +9,31 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1931277135241114}
+  m_RootGameObject: {fileID: 1509512908785074}
   m_IsPrefabParent: 1
---- !u!1 &1931277135241114
+--- !u!1 &1509512908785074
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4994423705646268}
-  - component: {fileID: 114588282643461830}
-  - component: {fileID: 114836175191690182}
+  - component: {fileID: 4519649801306294}
+  - component: {fileID: 114802725110169642}
+  - component: {fileID: 114735101046467434}
   m_Layer: 0
-  m_Name: ProjectContext
+  m_Name: SceneContext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4994423705646268
+--- !u!4 &4519649801306294
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1931277135241114}
+  m_GameObject: {fileID: 1509512908785074}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -41,32 +41,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114588282643461830
+--- !u!114 &114735101046467434
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1931277135241114}
+  m_GameObject: {fileID: 1509512908785074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4e6589720da476459dc6dd71624b071, type: 3}
+  m_Script: {fileID: 11500000, guid: 68275a0187a24334b862fdc754bfa61a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UISettings:
+    Canvas: {fileID: 0}
+    ShowHideToggle: 0
+  GameSettings:
+    StartHeat: 5
+    MaxHeat: 10
+    MaxItems: 1
+--- !u!114 &114802725110169642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1509512908785074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _installers:
-  - {fileID: 114836175191690182}
+  - {fileID: 114735101046467434}
   _installerPrefabs: []
   _scriptableObjectInstallers: []
---- !u!114 &114836175191690182
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1931277135241114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 238e161c73ad44819903de4f34560bde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UnityLogSettings:
-    EnabledByDefault: 1
-    Nodes: []
+  _autoRun: 1
+  _parentNewObjectsUnderRoot: 0
+  _contractNames: []
+  _parentContractName: 
+  _parentContractNames: []

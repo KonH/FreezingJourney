@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UDBase.Controllers.EventSystem;
 
 public class GameState {
 
@@ -42,7 +43,10 @@ public class GameState {
 
 	public bool IsPlaying => Status == GameStatus.Playing;
 
-	public GameState(Settings settings) {
+	IEvent _events;
+
+	public GameState(IEvent events, Settings settings) {
+		_events = events;
 		Player = new PlayerState(settings.StartHeat, settings.MaxHeat, settings.MaxItems);
 	}
 
@@ -61,10 +65,15 @@ public class GameState {
 	}
 
 	void TryUpdateStatus() {
+		if ( !IsPlaying ) {
+			return;
+		}
 		if ( Player.CurItems >= Player.MaxItems ) {
 			Status = GameStatus.Win;
+			_events.Fire(new Game_Win());
 		} else if ( Player.CurHeat <= 0 ) {
 			Status = GameStatus.Lose;
+			_events.Fire(new Game_Lose());
 		}
 	}
 }
