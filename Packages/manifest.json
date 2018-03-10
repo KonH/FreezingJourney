@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.unity.probuilder": "3.0.1",
-    "com.unity.postprocessing": "2.0.2-preview"
+    "com.unity.probuilder": "3.0.1"
   }
 }
