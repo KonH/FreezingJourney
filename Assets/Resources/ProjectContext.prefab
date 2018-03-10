@@ -55,7 +55,8 @@ MonoBehaviour:
   _installers:
   - {fileID: 114836175191690182}
   _installerPrefabs: []
-  _scriptableObjectInstallers: []
+  _scriptableObjectInstallers:
+  - {fileID: 11400000, guid: 7d5f69d9b6b657f44b80c8cb58fcf609, type: 2}
 --- !u!114 &114836175191690182
 MonoBehaviour:
   m_ObjectHideFlags: 1

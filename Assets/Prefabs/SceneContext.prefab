@@ -56,7 +56,7 @@ MonoBehaviour:
     Canvas: {fileID: 0}
     ShowHideToggle: 0
   GameSettings:
-    StartHeat: 5
+    StartHeat: 7.5
     MaxHeat: 10
     MaxItems: 1
 --- !u!114 &114802725110169642

@@ -5,7 +5,11 @@ public class GameInstaller : UDBaseInstaller {
 	public UnityLog.Settings UnityLogSettings;
 
 	public override void InstallBindings() {
-		AddUnityLogger(UnityLogSettings);
+		if ( _buildType.IsEditor ) {
+			AddUnityLogger(UnityLogSettings);
+		} else {
+			AddEmptyLogger();
+		}
 		AddEvents();
 		AddDirectSceneLoader();
 	}

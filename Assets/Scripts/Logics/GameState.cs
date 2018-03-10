@@ -14,7 +14,8 @@ public class GameState {
 	public enum GameStatus {
 		Playing,
 		Lose,
-		Win
+		Win,
+		Paused
 	}
 
 	public class PlayerState {
@@ -38,6 +39,10 @@ public class GameState {
 		}
 	}
 
+	static bool Started;
+	static bool HeatZoneEntered;
+	static bool ItemCollected;
+
 	public GameStatus Status { get; private set; }
 	public PlayerState Player { get; private set; }
 
@@ -50,8 +55,19 @@ public class GameState {
 		Player = new PlayerState(settings.StartHeat, settings.MaxHeat, settings.MaxItems);
 	}
 
+	public void CheckGameStarted() {
+		if ( !Started ) {
+			_events.Fire(new Game_Started());
+			Started = true;
+		}
+	}
+
 	public void AddHeat(float value) {
 		if ( IsPlaying ) {
+			if ( !HeatZoneEntered && (value > 0) ) {
+				_events.Fire(new Game_HeatZoneEntered());
+				HeatZoneEntered = true;
+			}
 			Player.AddHeat(value);
 			TryUpdateStatus();
 		}
@@ -59,6 +75,10 @@ public class GameState {
 
 	public void AddItem() {
 		if ( IsPlaying ) {
+			if ( !ItemCollected ) {
+				_events.Fire(new Game_ItemCollected());
+				ItemCollected = true;
+			}
 			Player.AddItem();
 			TryUpdateStatus();
 		}
@@ -74,6 +94,18 @@ public class GameState {
 		} else if ( Player.CurHeat <= 0 ) {
 			Status = GameStatus.Lose;
 			_events.Fire(new Game_Lose());
+		}
+	}
+
+	public void Pause() {
+		if ( IsPlaying ) {
+			Status = GameStatus.Paused;
+		}
+	}
+
+	public void Unpause() {
+		if ( Status == GameStatus.Paused ) {
+			Status = GameStatus.Playing;
 		}
 	}
 }
