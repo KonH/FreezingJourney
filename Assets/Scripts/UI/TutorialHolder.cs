@@ -28,14 +28,17 @@ public class TutorialHolder : MonoBehaviour {
 
 	void OnGameStarted(Game_Started e) {
 		ShowOverlay(GameStarted);
+		_events.Unsubscribe<Game_Started>(OnGameStarted);
 	}
 
 	void OnHeatZoneEntered(Game_HeatZoneEntered e) {
 		ShowOverlay(HeatZoneEntered);
+		_events.Unsubscribe<Game_HeatZoneEntered>(OnHeatZoneEntered);
 	}
 
 	void OnItemCollected(Game_ItemCollected e) {
 		ShowOverlay(ItemCollected);
+		_events.Unsubscribe<Game_ItemCollected>(OnItemCollected);
 	}
 
 	public void ShowOverlay(UIOverlay overlay) {

@@ -57,30 +57,30 @@ public class GameState {
 
 	public void CheckGameStarted() {
 		if ( !Started ) {
-			_events.Fire(new Game_Started());
 			Started = true;
+			_events.Fire(new Game_Started());
 		}
 	}
 
 	public void AddHeat(float value) {
 		if ( IsPlaying ) {
-			if ( !HeatZoneEntered && (value > 0) ) {
-				_events.Fire(new Game_HeatZoneEntered());
-				HeatZoneEntered = true;
-			}
 			Player.AddHeat(value);
 			TryUpdateStatus();
+			if ( !HeatZoneEntered && (value > 0) ) {
+				HeatZoneEntered = true;
+				_events.Fire(new Game_HeatZoneEntered());
+			}
 		}
 	}
 
 	public void AddItem() {
 		if ( IsPlaying ) {
-			if ( !ItemCollected ) {
-				_events.Fire(new Game_ItemCollected());
-				ItemCollected = true;
-			}
 			Player.AddItem();
 			TryUpdateStatus();
+			if ( !ItemCollected ) {
+				ItemCollected = true;
+				_events.Fire(new Game_ItemCollected());
+			}
 		}
 	}
 
