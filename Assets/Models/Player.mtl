@@ -1,0 +1,20 @@
+newmtl MainMat
+Kd 0.5849056 0.3521804 0.03586687
+d 1
+
+newmtl MittensMat
+Kd 1 0.424673 0.1933962
+d 1
+
+newmtl FaceMat
+Kd 1 0.9233941 0.8726415
+d 1
+
+newmtl EyeMat
+Kd 0.1529411 0.8745099 0.9921569
+d 1
+
+newmtl HatMat
+Kd 0.764151 0.4518861 0.126157
+d 1
+
