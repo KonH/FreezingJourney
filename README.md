@@ -1,5 +1,7 @@
 # FreezingJourney
 
+Play it [here](https://konh.itch.io/freezing-journey).
+
 Survival game in frozen polar lands.
 
 Polar explorer Ivan participated in the expedition to the North Pole. Once there was an accident at the station and he was left alone with the strongest frost.
